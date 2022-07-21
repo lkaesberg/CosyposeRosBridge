@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+build/cosypose_serv/cosypose_serv.egg-info/PKG-INFO
+build/cosypose_serv/cosypose_serv.egg-info/SOURCES.txt
+build/cosypose_serv/cosypose_serv.egg-info/dependency_links.txt
+build/cosypose_serv/cosypose_serv.egg-info/entry_points.txt
+build/cosypose_serv/cosypose_serv.egg-info/requires.txt
+build/cosypose_serv/cosypose_serv.egg-info/top_level.txt
+build/cosypose_serv/cosypose_serv.egg-info/zip-safe
+cosypose_serv/__init__.py
+cosypose_serv/cosypose_serv.py
+resource/cosypose_serv
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
