@@ -1,2 +1,0 @@
-[console_scripts]
-cosypose_serv = cosypose_serv.cosypose_serv:main

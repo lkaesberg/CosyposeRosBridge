@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'cosypose_serv'
+package_name = 'cosypose_ros_bridge'
 
 setup(
     name=package_name,
@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'cosypose_serv = cosypose_serv.cosypose_serv:main',
+            'cosypose_ros_bridge = cosypose_ros_bridge.cosypose_ros_bridge:main',
         ],
     },
 )
