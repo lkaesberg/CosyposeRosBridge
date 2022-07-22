@@ -25,15 +25,11 @@ class CosyposeRosBridge(Node):
         ts.registerCallback(self.listener_callback)
 
     def listener_callback(self, *msgs):
-        img = cv2.imdecode(np.array(msgs[0].data), cv2.IMREAD_ANYCOLOR)
-
-        cv2.imshow("test", img)
-        print(img)
-        # try:
-        #    result = self.c.solve([np.array(msg.data).tolist() for msg in msgs])
-        #    print(result)
-        # except:
-        #    print("Cosypose not running!")
+        try:
+            result = self.c.solve([np.array(msg.data).tolist() for msg in msgs])
+            print(result)
+        except:
+            print("Cosypose not running!")
 
 
 def main(args=None):
