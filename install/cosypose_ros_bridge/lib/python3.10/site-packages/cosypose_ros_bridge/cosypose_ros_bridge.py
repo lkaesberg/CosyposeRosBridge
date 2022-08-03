@@ -10,6 +10,7 @@ import zerorpc
 import numpy as np
 
 from sensor_msgs.msg import CompressedImage
+from std_msgs.msg import String
 
 
 class CosyposeRosBridge(Node):
@@ -20,6 +21,7 @@ class CosyposeRosBridge(Node):
         self.c = zerorpc.Client(timeout=5)
         print("Connecting to Cosypose...")
         self.c.connect("tcp://127.0.0.1:4242")
+        self.publisher = self.create_publisher(String, 'cosypose/pose', 10)
         cams = [message_filters.Subscriber(self, CompressedImage, cam) for cam in cams]
         ts = message_filters.ApproximateTimeSynchronizer(cams, 1, 1)
         ts.registerCallback(self.listener_callback)
@@ -27,6 +29,9 @@ class CosyposeRosBridge(Node):
     def listener_callback(self, *msgs):
         try:
             result = self.c.solve([np.array(msg.data).tolist() for msg in msgs])
+            msg = String()
+            msg.data = str(result)
+            self.publisher.publish(msg)
             print(result)
         except:
             print("Cosypose not running!")
